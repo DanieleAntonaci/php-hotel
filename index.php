@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <title>php-hotel</title>
     <?php
         $hotels = [
@@ -48,23 +49,46 @@
     ?>
 </head>
 <body>
-    <h1>
+<table class="table table-success">
+    <thead>
+        <tr>
+        <th scope="col">name</th>
+        <th scope="col">description</th>
+        <th scope="col">parking</th>
+        <th scope="col">vote</th>
+        <th scope="col">distance_to_center</th>
+        </tr>
+    </thead>
+    <tbody>
+
         <?php
-            foreach($hotels as $hotel){
+            foreach($hotels as $key => $hotel){
                 $name = $hotel['name']; 
                 $description = $hotel['description']; 
                 $parking = $hotel['parking']; 
                 $vote = $hotel['vote']; 
                 $distance_to_center = $hotel['distance_to_center']; 
+                
 
-                echo $name . "<br>" 
-                    . $description . "<br>" 
-                    . $parking . "<br>" 
-                    . $vote . "<br>" 
-                    . $distance_to_center 
-                    . "<br>" . '<hr>';
-            }
+                echo '<tr>';
+
+                echo '<td>' . $name . '</td>';
+                echo '<td>' . $description . '</td>';
+                if($parking){
+                    echo '<td> Available </rd>';
+                } else{
+                    echo '<td> Not available </rd>';
+                };
+
+                echo '<td>' . $vote . '</td>';
+                echo '<td>' . $distance_to_center . ' km </td>';
+                
+                echo '</tr>';
+            };
         ?>
-    </h1>
+
+    </tbody>
+</table>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 </html>
