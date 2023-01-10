@@ -47,6 +47,7 @@
 
         ];
         $park = $_GET['parking'] ?? 'off';
+        $voto = $_GET['voto'] ?? '0';
     ?>
 </head>
 <body>
@@ -54,6 +55,10 @@
     <form>
         <input type="checkbox" name="parking">
         <label for="parking">Parking</label>
+        <br>
+        <label for="voto">Voto</label>
+        <input type="text" name='voto'>
+        <br>
         <input type="submit" value="SEARCH">
     </form>
 
@@ -79,21 +84,23 @@
                     $distance_to_center = $hotel['distance_to_center']; 
                     
                     if($park === 'on' && $parking === true || $park==='off'){
+                        if($voto <= $vote){
 
-                        echo '<tr>';
-                        
-                        echo '<td>' . $name . '</td>';
-                        echo '<td>' . $description . '</td>';
-                        if($parking){
-                            echo '<td> Available </rd>';
-                        } else{
-                            echo '<td> Not available </rd>';
+                            echo '<tr>';
+                            
+                            echo '<td>' . $name . '</td>';
+                            echo '<td>' . $description . '</td>';
+                            if($parking){
+                                echo '<td> Available </rd>';
+                            } else{
+                                echo '<td> Not available </rd>';
+                            };
+                            
+                            echo '<td>' . $vote . '</td>';
+                            echo '<td>' . $distance_to_center . ' km </td>';
+                            
+                            echo '</tr>';
                         };
-                        
-                        echo '<td>' . $vote . '</td>';
-                        echo '<td>' . $distance_to_center . ' km </td>';
-                        
-                        echo '</tr>';
                     };
                 };
             ?>
