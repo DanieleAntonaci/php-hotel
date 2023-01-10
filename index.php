@@ -55,10 +55,21 @@
     <form>
         <input type="checkbox" name="parking">
         <label for="parking">Parking</label>
+
         <br>
+
         <label for="voto">Voto</label>
-        <input type="text" name='voto'>
+        <select name="voto">
+            <option value="all">all</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+
         <br>
+
         <input type="submit" value="SEARCH">
     </form>
 
@@ -84,7 +95,7 @@
                     $distance_to_center = $hotel['distance_to_center']; 
                     
                     if($park === 'on' && $parking === true || $park==='off'){
-                        if($voto <= $vote){
+                        if($voto <= $vote || $voto == 'all'){
 
                             echo '<tr>';
                             
