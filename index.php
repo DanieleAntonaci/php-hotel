@@ -47,7 +47,7 @@
 
         ];
         $park = $_GET['parking'] ?? 'off';
-        $voto = $_GET['voto'] ?? '0';
+        $voto = $_GET['voto'] ?? 'all';
     ?>
 </head>
 <body>
@@ -97,20 +97,19 @@
                     if($park === 'on' && $parking === true || $park==='off'){
                         if($voto <= $vote || $voto == 'all'){
 
-                            echo '<tr>';
-                            
-                            echo '<td>' . $name . '</td>';
-                            echo '<td>' . $description . '</td>';
+                            echo '<tr>' 
+                                . '<td>' . $name . '</td>'
+                                . '<td>' . $description . '</td>';
+                                
                             if($parking){
                                 echo '<td> Available </rd>';
                             } else{
                                 echo '<td> Not available </rd>';
                             };
                             
-                            echo '<td>' . $vote . '</td>';
-                            echo '<td>' . $distance_to_center . ' km </td>';
-                            
-                            echo '</tr>';
+                            echo '<td>' . $vote . '</td>'
+                            . '<td>' . $distance_to_center . ' km </td>'
+                            . '</tr>';
                         };
                     };
                 };
